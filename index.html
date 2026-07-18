@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam / Dev & Athlete</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0c10;
+            --surface: #12131c;
+            --surface-accent: #1a1c29;
+            --accent: #4dade7;
+            --text: #f4f3c8;
+            --text-dim: #9499b3;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'Space Grotesk', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            padding: 0 24px;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        .wrapper {
+            max-width: 680px;
+            margin: 120px auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .status-line {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        .status-line span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--surface-accent);
+        }
+
+        p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .box {
+            background: var(--surface);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .box:hover {
+            border-color: rgba(77, 173, 231, 0.2);
+        }
+
+        .box h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .box p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Game Widget Styles */
+        .widget-card {
+            background: var(--surface);
+            border: 1px solid var(--surface-accent);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .widget-card:hover {
+            border-color: rgba(77, 173, 231, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .widget-title h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: var(--font-mono);
+        }
+
+        .widget-title span {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .embed-container {
+            min-height: 167px;
+            background: #000;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        iframe {
+            max-width: 100%;
+            width: 552px;
+            height: 167px;
+            border: 0;
+        }
+
+        .links {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            background: var(--surface);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border: 1px solid var(--surface-accent);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        #interactive-quote {
+            min-height: 50px;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .wrapper { margin: 60px auto; }
+            h1 { font-size: 2.3rem; }
+            .split { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>All About Me - [Portifolio]</h1>
+        </header>
+
+        <section>
+            <h2>Bio</h2>
+            <p>I'm Adam! I'm 15 years old, currently learning Unity with a friend of mine! But I split my time down the middle between writing code and training. Right now, I'm fully focused on breaking down game logic, experimenting with C#, and translating the grind of competitive sports into building fast, playable projects.</p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <p>Tinkering with mechanics and learning how to handle state in Unity. This is my active gameplay prototype.</p>
+            
+            <!-- THE WIDGET -->
+            <div class="widget-card">
+                <div class="widget-header">
+                    <div class="widget-title">
+                        <span>Unity Build v0.1</span>
+                        <h3>PewPew Guy!</h3>
+                    </div>
+                    <a href="https://ayydamm.itch.io/pewpew-guy" target="_blank" class="btn" style="padding: 6px 14px; font-size: 0.85rem;">Open on Itch</a>
+                </div>
+                
+                <div class="embed-container">
+                    <iframe src="https://itch.io/embed/4791287?bg_color=f4f3c8&amp;fg_color=222222&amp;link_color=4dade7&amp;border_color=333333" width="552" height="167"><a href="https://ayydamm.itch.io/pewpew-guy">PewPew Guy! (Prototype) by Ayydamm</a></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Focus Areas</h2>
+            <div class="split">
+                <div class="box">
+                    <h3>Dev</h3>
+                    <p>C#, physics engines, UI loops, and finding out why the build just broke.</p>
+                </div>
+                <div class="box">
+                    <h3>Athletics</h3>
+                    <p>Conditioning, discipline, and resetting my brain outside of terminal screens.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Logs</h2>
+            <p id="interactive-quote">"The code works. I don't know why."</p>
+            <div class="links">
+                <button class="btn" id="cycle-btn">// Refresh Thoughts</button>
+                <a href="https://ayydamm.itch.io/" target="_blank" class="btn">Itch.io Profile</a>
+                <a href="https://ayydamm.itch.io/" target="_blank" class="btn">Github</a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const items = [
+            "\"If it compiles on the first try, something is deeply wrong.\"",
+            "\"Compounding variables. Consistency over everything.\"",
+            "\"Simplicity is better than clever code.\"",
+            "\"Clean up the logic before you build the flashy parts.\""
+        ];
+
+        const btn = document.getElementById('cycle-btn');
+        const display = document.getElementById('interactive-quote');
+        let index = 0;
+
+        btn.addEventListener('click', () => {
+            index = (index + 1) % items.length;
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.textContent = items[index];
+                display.style.opacity = 1;
+            }, 150);
+        });
+    </script>
+</body>
+</html>
